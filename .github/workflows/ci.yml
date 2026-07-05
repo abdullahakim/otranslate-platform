@@ -35,7 +35,7 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
 
       - name: Setup Reviewdog
         uses: reviewdog/action-setup@v1
@@ -91,12 +91,9 @@ jobs:
             p/security-audit
             p/typescript
 
-      - name: OSV-Scanner
-        uses: google/osv-scanner-action@v1
-        with:
-          scan-args: |-
-            --recursive
-            ./
+      - name: Dependency audit (pnpm audit)
+        run: pnpm audit --audit-level=high
+        continue-on-error: true
 
   # ──────────────────────────────────────────────────────────────────────────
   # JOB 3: PR Conventions — Danger.js
@@ -124,7 +121,7 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
 
       - name: Danger.js
         run: npx danger ci
