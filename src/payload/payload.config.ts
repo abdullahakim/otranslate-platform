@@ -3,7 +3,23 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { buildConfig } from 'payload';
 import sharp from 'sharp';
 
-import { Placeholders } from './collections/Placeholders';
+import { AdministrativeAreas } from './collections/AdministrativeAreas';
+import { Authorities } from './collections/Authorities';
+import { Combos } from './collections/Combos';
+import { Countries } from './collections/Countries';
+import { Documents } from './collections/Documents';
+import { Faqs } from './collections/Faqs';
+import { JurisdictionProfiles } from './collections/JurisdictionProfiles';
+import { LanguagePairs } from './collections/LanguagePairs';
+import { Languages } from './collections/Languages';
+import { MarketProfiles } from './collections/MarketProfiles';
+import { PriceBooks } from './collections/PriceBooks';
+import { Redirects } from './collections/Redirects';
+import { Regions } from './collections/Regions';
+import { Services } from './collections/Services';
+import { UseCases } from './collections/UseCases';
+import { Users } from './collections/Users';
+import { Settings } from './globals/Settings';
 
 const databaseUri = process.env['DATABASE_URI'];
 const payloadSecret = process.env['PAYLOAD_SECRET'];
@@ -18,15 +34,38 @@ if (!payloadSecret) {
 
 export default buildConfig({
   admin: {
-    user: Placeholders.slug,
+    user: Users.slug,
   },
-  collections: [Placeholders],
+  collections: [
+    Users,
+    Services,
+    Documents,
+    Authorities,
+    Languages,
+    LanguagePairs,
+    PriceBooks,
+    UseCases,
+    Regions,
+    Countries,
+    MarketProfiles,
+    JurisdictionProfiles,
+    AdministrativeAreas,
+    Faqs,
+    Combos,
+    Redirects,
+  ],
   db: postgresAdapter({
     pool: {
       connectionString: databaseUri,
     },
   }),
   editor: lexicalEditor(),
+  globals: [Settings],
+  localization: {
+    defaultLocale: 'ar',
+    fallback: true,
+    locales: ['ar', 'en'],
+  },
   secret: payloadSecret,
   sharp,
   typescript: {
