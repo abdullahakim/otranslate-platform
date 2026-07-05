@@ -34,6 +34,40 @@ GTM-TGFRTRR5  ·  GA4 G-5PGZ7E6QWF
 Every PR requires: written spec artifact → CI green → Claude review → merge.
 See `Pipeline-Stage-A-Runbook.md` in the vault for the full guide.
 
+## Local development quickstart
+
+### Prerequisites
+
+- Node.js 22
+- pnpm 9+ via Corepack
+- Docker Compose
+
+### Environment
+
+```bash
+cp .env.example .env
+```
+
+The example values are for local development only. Never commit real secrets.
+
+### Run with Docker Compose
+
+```bash
+docker compose up
+```
+
+This starts PostgreSQL 17 and the Next.js/Payload app. The Payload admin is mounted at `/admin`.
+
+### Run the app locally against Docker Postgres
+
+```bash
+docker compose up postgres
+pnpm install
+pnpm dev
+```
+
+Open <http://localhost:3000> for the Arabic root locale, <http://localhost:3000/en> for the English mirror, and <http://localhost:3000/admin> for Payload admin.
+
 ## Local checks
 
 ```bash
