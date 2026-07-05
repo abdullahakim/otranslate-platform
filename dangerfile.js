@@ -39,7 +39,5 @@ if (!hasSpecLink) {
 // ── Rule 3: Large diff warning ────────────────────────────────────────────────
 const linesChanged = danger.github.pr.additions + danger.github.pr.deletions;
 if (linesChanged > 400) {
-  warn(
-    `**Large PR:** ${linesChanged} lines changed. Consider splitting for focused review.`,
-  );
+  warn(`**Large PR:** ${linesChanged} lines changed. Consider splitting for focused review.`);
 }

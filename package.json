@@ -2,7 +2,6 @@
   "name": "otranslate-platform",
   "version": "0.0.1",
   "private": true,
-  "packageManager": "pnpm@9.15.4",
   "engines": {
     "node": ">=22",
     "pnpm": ">=9"

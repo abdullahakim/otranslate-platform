@@ -6,14 +6,14 @@ Built against the [Master Plan: System Design & Phased Delivery](../business/bu-
 
 ## Phases
 
-| Phase | Module | Goal |
-|---|---|---|
-| 1 | M0 + M1 | Foundation + Traffic Site (live bilingual site, SEO/GEO-ready) |
-| 2 | M2 | Intake — structured quote/order forms |
-| 3 | M3 | Ops Core — order state machine + dashboard |
-| 4 | M4 | Files & Quality |
-| 5 | M5 | Delivery & Certificates |
-| 6 | M6 | Insight — reporting & analytics |
+| Phase | Module  | Goal                                                           |
+| ----- | ------- | -------------------------------------------------------------- |
+| 1     | M0 + M1 | Foundation + Traffic Site (live bilingual site, SEO/GEO-ready) |
+| 2     | M2      | Intake — structured quote/order forms                          |
+| 3     | M3      | Ops Core — order state machine + dashboard                     |
+| 4     | M4      | Files & Quality                                                |
+| 5     | M5      | Delivery & Certificates                                        |
+| 6     | M6      | Insight — reporting & analytics                                |
 
 ## Stack
 

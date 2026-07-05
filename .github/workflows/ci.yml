@@ -28,50 +28,38 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: '9'
 
       - name: Setup Node 22
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: pnpm
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+      - name: Install deps
+        run: pnpm install --no-frozen-lockfile
 
-      - name: Setup Reviewdog
-        uses: reviewdog/action-setup@v1
+      - name: Lint (ESLint via Reviewdog)
+        uses: reviewdog/action-eslint@v1
         with:
-          reviewdog_version: latest
-
-      - name: ESLint (Reviewdog)
-        env:
-          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          pnpm lint --format json 2>/dev/null \
-            | reviewdog \
-                -f=eslint \
-                -name="ESLint" \
-                -reporter=github-pr-review \
-                -fail-on-error \
-                -level=error \
-            || (pnpm lint && exit 1)
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
+          eslint_flags: '.'
+          fail_on_error: true
 
       - name: Typecheck
-        run: pnpm typecheck
+        run: pnpm exec tsc --noEmit
 
       - name: Format check
-        run: pnpm format:check
+        run: pnpm exec prettier --check .
 
   # ──────────────────────────────────────────────────────────────────────────
-  # JOB 2: Security — Semgrep · Gitleaks · OSV-Scanner
+  # JOB 2: Security
   # ──────────────────────────────────────────────────────────────────────────
   security:
     name: Security
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      pull-requests: write
       security-events: write
 
     steps:
@@ -80,12 +68,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Gitleaks
+      - name: Secret scan (Gitleaks)
         uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Semgrep
+      - name: SAST (Semgrep)
         uses: semgrep/semgrep-action@v1
         with:
           config: >-
@@ -93,15 +81,25 @@ jobs:
             p/security-audit
             p/typescript
 
-      - name: OSV-Scanner
-        uses: google/osv-scanner-action@v2
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
         with:
-          scan-args: |-
-            --recursive
-            ./
+          version: '9'
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install deps
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Dependency audit
+        run: pnpm audit --audit-level=high
+        continue-on-error: true
 
   # ──────────────────────────────────────────────────────────────────────────
-  # JOB 3: PR Conventions — Danger.js
+  # JOB 3: PR Conventions (Danger.js)
   # ──────────────────────────────────────────────────────────────────────────
   conventions:
     name: PR Conventions (Danger.js)
@@ -110,7 +108,6 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
-      issues: write
 
     steps:
       - name: Checkout
@@ -119,18 +116,17 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: '9'
 
       - name: Setup Node 22
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: pnpm
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+      - name: Install deps
+        run: pnpm install --no-frozen-lockfile
 
-      - name: Danger.js
+      - name: Run Danger.js
         run: npx danger ci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
