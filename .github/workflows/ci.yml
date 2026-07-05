@@ -28,7 +28,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: "9"
+          version: '9'
 
       - name: Setup Node 22
         uses: actions/setup-node@v4
@@ -43,7 +43,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
-          eslint_flags: "."
+          eslint_flags: '.'
           fail_on_error: true
 
       - name: Typecheck
@@ -84,7 +84,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: "9"
+          version: '9'
 
       - name: Setup Node 22
         uses: actions/setup-node@v4
@@ -116,7 +116,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: "9"
+          version: '9'
 
       - name: Setup Node 22
         uses: actions/setup-node@v4
