@@ -1,0 +1,103 @@
+[
+  {
+    "key": "uscis",
+    "status": "published",
+    "tier": "1",
+    "slug": {
+      "ar": "uscis",
+      "en": "uscis"
+    },
+    "meta": {
+      "title": {
+        "ar": "__SEED_PLACEHOLDER__",
+        "en": "__SEED_PLACEHOLDER__"
+      },
+      "description": {
+        "ar": "__SEED_PLACEHOLDER__",
+        "en": "__SEED_PLACEHOLDER__"
+      }
+    },
+    "type": "immigration-authority",
+    "name": {
+      "ar": "__SEED_PLACEHOLDER__",
+      "en": "__SEED_PLACEHOLDER__"
+    },
+    "country": "egypt",
+    "languages": ["english"],
+    "requirement_summary": {
+      "ar": {
+        "root": {
+          "type": "root",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "text",
+                  "text": "__SEED_PLACEHOLDER__",
+                  "format": 0,
+                  "style": "",
+                  "mode": "normal",
+                  "detail": 0
+                }
+              ],
+              "direction": null,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ]
+        }
+      },
+      "en": {
+        "root": {
+          "type": "root",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "text",
+                  "text": "__SEED_PLACEHOLDER__",
+                  "format": 0,
+                  "style": "",
+                  "mode": "normal",
+                  "detail": 0
+                }
+              ],
+              "direction": null,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ]
+        }
+      }
+    },
+    "required_language": "english",
+    "certification_rule": {
+      "ar": "__SEED_PLACEHOLDER__",
+      "en": "__SEED_PLACEHOLDER__"
+    },
+    "legalization_required": false,
+    "last_verified": "2026-07-06T00:00:00.000Z",
+    "source_references": [
+      {
+        "label": "__SEED_PLACEHOLDER__",
+        "url": "https://example.com/seed-placeholder"
+      }
+    ],
+    "top_documents": ["birth-certificate", "marriage-certificate"],
+    "faqs": ["certified-translation-general", "certified-translation-delivery"]
+  }
+]

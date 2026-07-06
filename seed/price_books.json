@@ -1,0 +1,12 @@
+[
+  {
+    "key": "b2c-egypt-egp",
+    "currency": "EGP",
+    "base_pair": "ar-en",
+    "per_page": 200,
+    "minimum_charge": 200,
+    "rush_per_page": 250,
+    "rush_promise_hours": 24,
+    "unit_words_per_page": 250
+  }
+]

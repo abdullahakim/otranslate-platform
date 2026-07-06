@@ -68,6 +68,15 @@ pnpm dev
 
 Open <http://localhost:3000> for the Arabic root locale, <http://localhost:3000/en> for the English mirror, and <http://localhost:3000/admin> for Payload admin.
 
+### Seed and export Payload content
+
+```bash
+pnpm seed
+pnpm export
+```
+
+`pnpm seed` idempotently imports JSON fixtures from `seed/` into Payload using stable keys and relation-key resolution. `pnpm export` writes the current Payload collections and the `settings` global back to `seed/*.json` with stable ordering and 2-space formatting.
+
 ## Local checks
 
 ```bash

@@ -1,0 +1,32 @@
+[
+  {
+    "key": "egypt",
+    "status": "published",
+    "tier": "1",
+    "slug": {
+      "ar": "egypt",
+      "en": "egypt"
+    },
+    "meta": {
+      "title": {
+        "ar": "__SEED_PLACEHOLDER__",
+        "en": "__SEED_PLACEHOLDER__"
+      },
+      "description": {
+        "ar": "__SEED_PLACEHOLDER__",
+        "en": "__SEED_PLACEHOLDER__"
+      }
+    },
+    "name": {
+      "ar": "__SEED_PLACEHOLDER__",
+      "en": "__SEED_PLACEHOLDER__"
+    },
+    "currency": "EGP",
+    "timezone": "Africa/Cairo",
+    "price_book": "b2c-egypt-egp",
+    "legal_notes": {
+      "ar": "__SEED_PLACEHOLDER__",
+      "en": "__SEED_PLACEHOLDER__"
+    }
+  }
+]
