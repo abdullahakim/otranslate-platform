@@ -83,6 +83,7 @@ export interface Config {
     faqs: Faq;
     combos: Combo;
     redirects: Redirect;
+    audit_events: AuditEvent;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -106,6 +107,7 @@ export interface Config {
     faqs: FaqsSelect<false> | FaqsSelect<true>;
     combos: CombosSelect<false> | CombosSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
+    audit_events: AuditEventsSelect<false> | AuditEventsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents':
       PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -158,6 +160,7 @@ export interface User {
   id: number;
   updatedAt: string;
   createdAt: string;
+  role: 'admin';
   email: string;
   resetPasswordToken?: string | null;
   resetPasswordExpiration?: string | null;
@@ -636,6 +639,19 @@ export interface Redirect {
   id: number;
   from_path: string;
   to_path: string;
+  updatedAt: string;
+  createdAt: string;
+}
+export interface AuditEvent {
+  id: number;
+  event_type: 'create' | 'update' | 'delete';
+  collection_slug: string;
+  doc_id: string;
+  actor: string;
+  diff: {
+    [k: string]: unknown;
+  };
+  timestamp?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -1157,6 +1173,16 @@ export interface CombosSelect<T extends boolean = true> {
 export interface RedirectsSelect<T extends boolean = true> {
   from_path?: T;
   to_path?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+export interface AuditEventsSelect<T extends boolean = true> {
+  event_type?: T;
+  collection_slug?: T;
+  doc_id?: T;
+  actor?: T;
+  diff?: T;
+  timestamp?: T;
   updatedAt?: T;
   createdAt?: T;
 }

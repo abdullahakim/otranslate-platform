@@ -4,6 +4,7 @@ import { buildConfig } from 'payload';
 import sharp from 'sharp';
 
 import { AdministrativeAreas } from './collections/AdministrativeAreas';
+import { AuditEvents } from './collections/AuditEvents';
 import { Authorities } from './collections/Authorities';
 import { Combos } from './collections/Combos';
 import { Countries } from './collections/Countries';
@@ -19,6 +20,7 @@ import { Regions } from './collections/Regions';
 import { Services } from './collections/Services';
 import { UseCases } from './collections/UseCases';
 import { Users } from './collections/Users';
+import { withAuditHooks } from './collections/auditHooks';
 import { Settings } from './globals/Settings';
 
 const databaseUri = process.env['DATABASE_URI'];
@@ -36,7 +38,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  collections: [
+  collections: withAuditHooks([
     Users,
     Services,
     Documents,
@@ -53,7 +55,8 @@ export default buildConfig({
     Faqs,
     Combos,
     Redirects,
-  ],
+    AuditEvents,
+  ]),
   db: postgresAdapter({
     pool: {
       connectionString: databaseUri,
