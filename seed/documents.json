@@ -1,0 +1,64 @@
+[
+  {
+    "key": "birth-certificate",
+    "status": "published",
+    "tier": "1",
+    "slug": {
+      "ar": "birth-certificate",
+      "en": "birth-certificate"
+    },
+    "meta": {
+      "title": {
+        "ar": "__SEED_PLACEHOLDER__",
+        "en": "__SEED_PLACEHOLDER__"
+      },
+      "description": {
+        "ar": "__SEED_PLACEHOLDER__",
+        "en": "__SEED_PLACEHOLDER__"
+      }
+    },
+    "name": {
+      "ar": "__SEED_PLACEHOLDER__",
+      "en": "__SEED_PLACEHOLDER__"
+    },
+    "category": "civil",
+    "typical_pages": 1,
+    "requirements": {
+      "ar": "__SEED_PLACEHOLDER__",
+      "en": "__SEED_PLACEHOLDER__"
+    },
+    "turnaround_hours": 24,
+    "faqs": ["certified-translation-general"]
+  },
+  {
+    "key": "marriage-certificate",
+    "status": "published",
+    "tier": "1",
+    "slug": {
+      "ar": "marriage-certificate",
+      "en": "marriage-certificate"
+    },
+    "meta": {
+      "title": {
+        "ar": "__SEED_PLACEHOLDER__",
+        "en": "__SEED_PLACEHOLDER__"
+      },
+      "description": {
+        "ar": "__SEED_PLACEHOLDER__",
+        "en": "__SEED_PLACEHOLDER__"
+      }
+    },
+    "name": {
+      "ar": "__SEED_PLACEHOLDER__",
+      "en": "__SEED_PLACEHOLDER__"
+    },
+    "category": "civil",
+    "typical_pages": 1,
+    "requirements": {
+      "ar": "__SEED_PLACEHOLDER__",
+      "en": "__SEED_PLACEHOLDER__"
+    },
+    "turnaround_hours": 24,
+    "faqs": ["certified-translation-delivery"]
+  }
+]

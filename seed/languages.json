@@ -1,0 +1,48 @@
+[
+  {
+    "key": "arabic",
+    "status": "published",
+    "tier": "1",
+    "slug": {
+      "ar": "arabic",
+      "en": "arabic"
+    },
+    "meta": {
+      "title": {
+        "ar": "__SEED_PLACEHOLDER__",
+        "en": "__SEED_PLACEHOLDER__"
+      },
+      "description": {
+        "ar": "__SEED_PLACEHOLDER__",
+        "en": "__SEED_PLACEHOLDER__"
+      }
+    },
+    "name": {
+      "ar": "__SEED_PLACEHOLDER__",
+      "en": "__SEED_PLACEHOLDER__"
+    }
+  },
+  {
+    "key": "english",
+    "status": "published",
+    "tier": "1",
+    "slug": {
+      "ar": "english",
+      "en": "english"
+    },
+    "meta": {
+      "title": {
+        "ar": "__SEED_PLACEHOLDER__",
+        "en": "__SEED_PLACEHOLDER__"
+      },
+      "description": {
+        "ar": "__SEED_PLACEHOLDER__",
+        "en": "__SEED_PLACEHOLDER__"
+      }
+    },
+    "name": {
+      "ar": "__SEED_PLACEHOLDER__",
+      "en": "__SEED_PLACEHOLDER__"
+    }
+  }
+]

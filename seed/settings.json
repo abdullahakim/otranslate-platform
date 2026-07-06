@@ -1,0 +1,15 @@
+{
+  "gtm_id": "GTM-TGFRTRR5",
+  "ga4_id": "G-5PGZ7E6QWF",
+  "whatsapp_number": "+201000000000",
+  "whatsapp_link_pattern": "https://wa.me/{number}",
+  "google_rating": {
+    "value": 5,
+    "count": 1
+  },
+  "delivery": {
+    "note_ar": "__SEED_PLACEHOLDER__",
+    "cairo_same_day": true
+  },
+  "page_word_unit": 250
+}
