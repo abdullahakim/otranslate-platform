@@ -1,6 +1,6 @@
 # Sitemap Spec — otranslate.com (Next.js)
 
-*Sanitized build extract. Every page is generated from a data record (see `content-data-model.md`). One template per cluster type; no hand-built pages except the 6 core/trust pages.*
+_Sanitized build extract. Every page is generated from a data record (see `content-data-model.md`). One template per cluster type; no hand-built pages except the 6 core/trust pages._
 
 ## 1. Language & URL conventions
 
@@ -12,22 +12,22 @@
 
 ## 2. Page-type inventory (one Next.js template each)
 
-| # | Template | AR route | EN route | Generated from |
-|---|---|---|---|---|
-| T1 | Homepage | `/` | `/en/` | settings + featured refs |
-| T2 | Service pillar | `/خدمات/{service}/` | `/en/services/{service}/` | `services` |
-| T3 | Document page | `/وثائق/{doc}/` | `/en/documents/{doc}/` | `documents` |
-| T5 | Language page | `/لغات/{lang}/` | `/en/languages/{lang}/` | `languages` |
-| T6 | Use-case page | `/استخدامات/{case}/` | `/en/use-cases/{case}/` | `use_cases` |
-| T7 | Governorate delivery | `/محافظات/{gov}/` | `/en/delivery/{gov}/` | `administrative_areas` |
-| T8 | Hub (one per cluster) | `/وثائق/` etc. | `/en/documents/` etc. | collection index |
-| T9 | Pricing | `/الأسعار/` | `/en/pricing/` | `price_books` + `languages` |
-| T10 | Combo doc×authority (phase 2, gated) | `/وثائق/{doc}/{authority}/` | `/en/documents/{doc}/{authority}/` | `combos` |
-| T12 | Trust/static | see §4 | mirrored | hand-written |
-| T13a | Market page (buying FROM a country) | `/الأسواق/{country}/` | `/en/markets/{country}/` | `countries` + `market_profiles` |
-| T13b | Destination page (documents going TO a country) | `/الوجهات/{country}/` | `/en/destinations/{country}/` | `countries` + `jurisdiction_profiles` |
-| T14 | Region hub (only when ≥3 good country pages) | `/الوجهات/{region}/` | `/en/destinations/{region}/` | `regions` |
-| T15 | Authority page (embassy, USCIS, IRCC, …) | `/الجهات/{authority}/` | `/en/authorities/{authority}/` | `authorities` |
+| #    | Template                                        | AR route                    | EN route                           | Generated from                        |
+| ---- | ----------------------------------------------- | --------------------------- | ---------------------------------- | ------------------------------------- |
+| T1   | Homepage                                        | `/`                         | `/en/`                             | settings + featured refs              |
+| T2   | Service pillar                                  | `/خدمات/{service}/`         | `/en/services/{service}/`          | `services`                            |
+| T3   | Document page                                   | `/وثائق/{doc}/`             | `/en/documents/{doc}/`             | `documents`                           |
+| T5   | Language page                                   | `/لغات/{lang}/`             | `/en/languages/{lang}/`            | `languages`                           |
+| T6   | Use-case page                                   | `/استخدامات/{case}/`        | `/en/use-cases/{case}/`            | `use_cases`                           |
+| T7   | Governorate delivery                            | `/محافظات/{gov}/`           | `/en/delivery/{gov}/`              | `administrative_areas`                |
+| T8   | Hub (one per cluster)                           | `/وثائق/` etc.              | `/en/documents/` etc.              | collection index                      |
+| T9   | Pricing                                         | `/الأسعار/`                 | `/en/pricing/`                     | `price_books` + `languages`           |
+| T10  | Combo doc×authority (phase 2, gated)            | `/وثائق/{doc}/{authority}/` | `/en/documents/{doc}/{authority}/` | `combos`                              |
+| T12  | Trust/static                                    | see §4                      | mirrored                           | hand-written                          |
+| T13a | Market page (buying FROM a country)             | `/الأسواق/{country}/`       | `/en/markets/{country}/`           | `countries` + `market_profiles`       |
+| T13b | Destination page (documents going TO a country) | `/الوجهات/{country}/`       | `/en/destinations/{country}/`      | `countries` + `jurisdiction_profiles` |
+| T14  | Region hub (only when ≥3 good country pages)    | `/الوجهات/{region}/`        | `/en/destinations/{region}/`       | `regions`                             |
+| T15  | Authority page (embassy, USCIS, IRCC, …)        | `/الجهات/{authority}/`      | `/en/authorities/{authority}/`     | `authorities`                         |
 
 (Embassy = an `authorities` record with `type: embassy`; T4 is merged into T15.) Market ≠ destination — different search intents, never one URL. "Tier-1" is internal vocabulary only, never a public label. No country-root domains in v1.
 

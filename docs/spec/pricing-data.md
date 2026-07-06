@@ -1,6 +1,6 @@
 # Pricing data + rules
 
-*Only the values Codex implements and the hard rules. Market strategy / positioning is intentionally not in this repo.*
+_Only the values Codex implements and the hard rules. Market strategy / positioning is intentionally not in this repo._
 
 ## Rules (non-negotiable)
 
@@ -12,11 +12,11 @@
 
 ## Price books
 
-| id | market | currency | per_page | minimum | rush_per_page | rush_hours |
-|---|---|---|---|---|---|---|
-| `b2c-egypt-egp` | egypt | EGP | 200 | 200 | 250 | 24 |
-| `b2c-gcc` | gcc | AED / SAR | 50 | 50 | 60 | 24 |
-| `b2c-tier1-usd` | tier1 | USD | 15 | 15 | 25 | 24 |
+| id              | market | currency  | per_page | minimum | rush_per_page | rush_hours |
+| --------------- | ------ | --------- | -------- | ------- | ------------- | ---------- |
+| `b2c-egypt-egp` | egypt  | EGP       | 200      | 200     | 250           | 24         |
+| `b2c-gcc`       | gcc    | AED / SAR | 50       | 50      | 60            | 24         |
+| `b2c-tier1-usd` | tier1  | USD       | 15       | 15      | 25            | 24         |
 
 ## Phase 1 publishing
 

@@ -1,6 +1,6 @@
 # Analytics events — otranslate.com
 
-*Technical taxonomy only. Account/property administration lives in the private vault.*
+_Technical taxonomy only. Account/property administration lives in the private vault._
 
 ## Container (law)
 
@@ -16,13 +16,13 @@ The site pushes events to `dataLayer`; GTM maps them to GA4.
 
 ## Events
 
-| Event | Trigger | Extra params |
-|---|---|---|
-| `whatsapp_click` | any WhatsApp CTA | `src` = page_id (**the Phase 1 conversion**) |
-| `quote_request_submit` | simple quote form (M1-5) | doc type, pair, market |
-| `pricing_view` | pricing page/block view | price_book |
-| `sample_view` | sample library open | sample id |
-| `phone_click` / `email_click` | contact taps | — |
-| (Phase 2+ reserved) | `quote_value`, `order_value` | market, pair, destination_country |
+| Event                         | Trigger                      | Extra params                                 |
+| ----------------------------- | ---------------------------- | -------------------------------------------- |
+| `whatsapp_click`              | any WhatsApp CTA             | `src` = page_id (**the Phase 1 conversion**) |
+| `quote_request_submit`        | simple quote form (M1-5)     | doc type, pair, market                       |
+| `pricing_view`                | pricing page/block view      | price_book                                   |
+| `sample_view`                 | sample library open          | sample id                                    |
+| `phone_click` / `email_click` | contact taps                 | —                                            |
+| (Phase 2+ reserved)           | `quote_value`, `order_value` | market, pair, destination_country            |
 
 Google Ads conversion stays mapped to `whatsapp_click` for historical comparability. WhatsApp links are built by **one helper** from `settings.whatsapp_link_pattern`.

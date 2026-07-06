@@ -17,7 +17,11 @@
   "whatsapp_number": "20XXXXXXXXXX",
   "whatsapp_link_pattern": "https://wa.me/{number}?text={intake_text}&src={page_id}",
   "google_rating": { "value": 4.9, "count": 513, "source": "live GBP API, fallback static" },
-  "delivery": { "governorates": "all", "note_ar": "التوصيل لجميع المحافظات", "cairo_same_day": true },
+  "delivery": {
+    "governorates": "all",
+    "note_ar": "التوصيل لجميع المحافظات",
+    "cairo_same_day": true
+  },
   "page_word_unit": 250
 }
 ```
@@ -31,6 +35,7 @@ Rating renders visually on every template; `AggregateRating` schema only where l
 ## 3. `documents` — T3, biggest cluster
 
 `category`, `typical_pages`, `requirements_ar`, `turnaround_hours`, `faq_ids`, `combo_flags`, `meta`, plus:
+
 - `related_authorities` (relationship → `authorities`).
 - from-price derived via **price book** (§6): `typical_pages` × per-page price of the page's market context (not a single global price).
 
@@ -38,13 +43,14 @@ Launch records: 12 per sitemap-spec T0.
 
 ## 4. `authorities` — T15 (generalizes embassies)
 
-Embassy, USCIS, IRCC, WES, university, court, ministry — anything that *accepts* the translation.
+Embassy, USCIS, IRCC, WES, university, court, ministry — anything that _accepts_ the translation.
 
 ```json
 {
   "id": "uscis",
   "type": "immigration-authority",
-  "status": "published", "tier": 0,
+  "status": "published",
+  "tier": 0,
   "slug": { "ar": "هيئة-الهجرة-الأمريكية-uscis", "en": "uscis" },
   "name": { "ar": "هيئة الهجرة الأمريكية (USCIS)", "en": "USCIS" },
   "country": "united-states",
@@ -54,10 +60,11 @@ Embassy, USCIS, IRCC, WES, university, court, ministry — anything that *accept
   "certification_rule": { "ar": "ترجمة معتمدة + شهادة دقة موقعة، لا يشترط توثيق" },
   "legalization_required": false,
   "last_verified": "2026-07-05",
-  "source_references": [ { "label": "USCIS policy", "url": "https://…" } ],
+  "source_references": [{ "label": "USCIS policy", "url": "https://…" }],
   "top_documents": ["birth-certificate", "marriage-certificate"],
   "related_use_cases": ["us-immigration"],
-  "faq_ids": [], "meta": {}
+  "faq_ids": [],
+  "meta": {}
 }
 ```
 
@@ -67,7 +74,7 @@ Embassy, USCIS, IRCC, WES, university, court, ministry — anything that *accept
 
 `languages`: `slug`, `name`, `related_authorities`, `top_documents`, `faq_ids`, `meta` — pricing moves to pairs.
 
-`language_pairs`: `source_language_id` + `target_language_id` + derived `pair_code` (`ar-en`), `pricing_tier` (1 = AR↔EN, 2 = other↔AR/EN, 3 = foreign↔foreign pivot ≥2×), optional per-pair price overrides per price book. Language *pages* (T5) aggregate their pairs; no public pair pages in v1.
+`language_pairs`: `source_language_id` + `target_language_id` + derived `pair_code` (`ar-en`), `pricing_tier` (1 = AR↔EN, 2 = other↔AR/EN, 3 = foreign↔foreign pivot ≥2×), optional per-pair price overrides per price book. Language _pages_ (T5) aggregate their pairs; no public pair pages in v1.
 
 ## 6. `price_books` — T9 + market pricing
 
@@ -75,12 +82,16 @@ One price book per market, currency is the fence, no page ever shows two books. 
 
 ```json
 {
-  "id": "b2c-egypt-egp", "market": "egypt", "currency": "EGP",
+  "id": "b2c-egypt-egp",
+  "market": "egypt",
+  "currency": "EGP",
   "base_pair": "ar-en",
-  "per_page": 200, "minimum_charge": 200,
-  "rush_per_page": 250, "rush_promise_hours": 24,
+  "per_page": 200,
+  "minimum_charge": 200,
+  "rush_per_page": 250,
+  "rush_promise_hours": 24,
   "unit_words_per_page": 250,
-  "pair_overrides": [ { "pair": "ar-de", "per_page": null } ],
+  "pair_overrides": [{ "pair": "ar-de", "per_page": null }],
   "b2b_note": "negotiated rates never published"
 }
 ```
@@ -91,13 +102,13 @@ One price book per market, currency is the fence, no page ever shows two books. 
 
 ## 8. Geo collections (schema in M0; Phase 1 publishes a slice)
 
-| Collection | Purpose | Phase 1 state |
-|---|---|---|
-| `regions` | Nav hubs + internal segments | schema only |
-| `countries` | Execution entity: currency, payment methods, price-book ref, timezone, availability, legal notes | Egypt + US/CA/DE/IT + UAE/SA drafts |
-| `market_profiles` | "How we sell there" → T13a | Egypt published; UAE/SA draft |
-| `jurisdiction_profiles` | "What they accept there" → T13b; requirement facts + `last_verified` + sources | US, Canada, Germany, Italy published |
-| `administrative_areas` | Egypt governorates → T7; demand-gated publishing | all 27 records; top governorates published |
+| Collection              | Purpose                                                                                          | Phase 1 state                              |
+| ----------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------ |
+| `regions`               | Nav hubs + internal segments                                                                     | schema only                                |
+| `countries`             | Execution entity: currency, payment methods, price-book ref, timezone, availability, legal notes | Egypt + US/CA/DE/IT + UAE/SA drafts        |
+| `market_profiles`       | "How we sell there" → T13a                                                                       | Egypt published; UAE/SA draft              |
+| `jurisdiction_profiles` | "What they accept there" → T13b; requirement facts + `last_verified` + sources                   | US, Canada, Germany, Italy published       |
+| `administrative_areas`  | Egypt governorates → T7; demand-gated publishing                                                 | all 27 records; top governorates published |
 
 ## 9. `faqs`
 
