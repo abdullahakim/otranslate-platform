@@ -130,3 +130,31 @@ jobs:
         run: npx danger ci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  # ──────────────────────────────────────────────────────────────────────────
+  # JOB 4: Content Validation
+  # ──────────────────────────────────────────────────────────────────────────
+  content-validation:
+    name: Content Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: '9'
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install deps
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Validate seed content
+        run: pnpm validate:content
+
+      - name: Content validator tests
+        run: pnpm exec vitest run scripts/__tests__/validate-content.test.ts
