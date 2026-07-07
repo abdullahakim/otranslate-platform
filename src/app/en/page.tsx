@@ -1,3 +1,5 @@
+import { HomePage } from '@/lib/pages';
+
 export default function EnglishHomePage() {
-  return null;
+  return <HomePage locale="en" />;
 }
